@@ -53,3 +53,14 @@
     function deleteElementOfCSVFile(){
 
     }
+
+    //this function it to read files for the signin php file
+    function returnFile($csvFile = "../data/authors.csv") {
+	$csvArray = array();
+	$file = fopen($csvFile, 'r');
+	while ($line = fgetcsv($file)) {
+	  $csvArray[] = $line;
+	}
+	return $csvArray;
+	fclose($file);
+}
