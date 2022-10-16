@@ -1,0 +1,21 @@
+10/16: modify.php in authors works
+
+10/16: Another late night comment...not sure you all have noticed this...
+Quotes can be added to csv with unique quoteID, authorID, quoteText structure
+Add author FINALLY doesn't accept duplicate entries (unless you spell it wrong).
+authors/index and create are 100% functional, just need to be prettier
+authors/details works, but the display does not include quotes by that author yet.
+quotes/create is functional for adding quotes to the database and "checking" for dups
+        need to add functionality to redirect user after quote is entered...
+	...	not sure where to send them - author details updated with quote, quote-specific detail page?
+We now have relational keys for the data in the files. This should help us
+with the delete function. Although, the numbering on the new items after a deletion
+might get wonky. I should have sqared or cubed the base number instead of last line + 1
+
+I hate to take a break given how much is still left to do, but I've got to sleep.
+
+
+
+10/15/22: Didn't want to put this in Teams and wake anyone up...
+
+If you look at authors/createv2.php, I edited the code a little to create a unique ID for each new author that persists when we delete lines (since deleting in this project is overwriting with an empty line). I was having trouble after deletions with the modify and view links pointing to the wrong line. I did not overwrite Amaya's code, because I did not test if her code experienced the same misalignment after deleting. This is something I started working on the other day and wanted to test. It points to a different csv file for now.

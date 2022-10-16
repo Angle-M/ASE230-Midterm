@@ -1,0 +1,9 @@
+Group Members:
+
+- Angel Munoz
+- Amaya Bryant
+- Tami Farber >> worked on php for authors and quotes to debug and make relevant to functionality
+- Quay Robinson
+
+Contribution to tasks:
+- Tami Farber >> worked on php for authors and quotes to debug and make relevant to functionality
