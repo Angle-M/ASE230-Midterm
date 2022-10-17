@@ -26,13 +26,16 @@
         $index += 1;
         // links to page, but has browser repeat search on the linked page
         // changed modify.php for code testing
+        //if the user is logged in then allow them to modify and delete
+        
         echo '<h1><a href="detail.php?index='.$index.'&authorID='.$authorID.'">'.trim($author_name).'</a>
-        (<a href="detail.php?index='.$index.'&authorID='.$authorID.'&authorNm='.$author_name.'">view author</a>)
-        (<a href="modify.php?index='.$index.'&authorID='.$authorID.'&authorNm='.$author_name.'">modify author</a>)
-        (<a href="delete.php?index='.$index.'&authorID='.$authorID.'&authorNm='.$author_name.'">delete author</a>)</h1>';
+        (<a href="detail.php?index='.$index.'&authorID='.$authorID.'&authorNm='.$author_name.'">view author</a>)';
+        if(isset($_SESSION['logged'])){
+          echo '(<a href="modify.php?index='.$index.'&authorID='.$authorID.'&authorNm='.$author_name.'">modify author</a>)
+          (<a href="delete.php?index='.$index.'&authorID='.$authorID.'&authorNm='.$author_name.'">delete author</a>)</h1>';
 
-      }
-      else {
+        }
+      } else {
         $index++; // this should maintain an index that doesn't skip empty lines
       }
 
