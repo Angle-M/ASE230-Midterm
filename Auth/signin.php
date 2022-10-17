@@ -46,7 +46,7 @@ if(count($_POST)>0){
                     $line = fgets($h);
                     $data = explode(',', $line);
                     $data[1] = trim($data[1]);
-                    print_r($data);
+                    //print_r($data);
                     // 8. check if the password is correct
                     if($email == $data[0]){
                             if(password_verify($password, $data[1])){
