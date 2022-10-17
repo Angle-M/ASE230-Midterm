@@ -56,13 +56,12 @@
 						break;
 					}
 				}
-			} else {
 				//Conditional statement that
 				//will contain code to put the data in the database;
 				$fh=fopen('users.csv', 'a+');
 				fputs($fh,$_POST['email'].';'.password_hash($_POST['password'],PASSWORD_DEFAULT).PHP_EOL);
 				fclose($fh);
-			}
+			} 
 		}
 	};
 
