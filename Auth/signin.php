@@ -42,25 +42,21 @@ if(count($_POST)>0){
             if(file_exists('users.csv')){
                 // 7. check if the email is registered
                 $h = fopen('users.csv', 'r+');
-                while(!feof($h)){
-                    $line = fgets($h);
-                    $data = explode(',', $line);
-                    $data[1] = trim($data[1]);
-                    //print_r($data);
-                    // 8. check if the password is correct
-                    if($email == $data[0]){
-                            if(password_verify($password, $data[1])){
-                                echo 'valid email and password';
-                                // 9. store session information
-                                $_SESSION['logged_user']=$email;
-                                $_SESSION['logged']=true;
-                                header('location:../authors/index.php');
-                                // 10. redirect the user to the members_page.php page
-                                die();
-                            } else {
-                                break;
-                            }
+                while($line=fgets($h)){
+                    $line=trim($line);
+                    $line=explode(';', $line);
+                    if($line[0]==trim($_POST['email'])){
+                        // 8. check if the password is correct
+                        if(password_verify($_POST['password'], $line[1])){
+                            // 9. store session information
+                            $_SESSION['logged'] = true;
+                            $_SESSION['email'] = '';
+                            // 10. redirect the user to the members_page.php page
+                            header('location: ../authors/index.php');//redirects user to private.php
+                        } else {
+                            $errorMessage = 'incorrect password';
                         }
+                    }
                 }
                 fclose($h);
                 echo 'The email is not registered, please signup';
