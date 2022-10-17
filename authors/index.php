@@ -1,9 +1,16 @@
 <!-- Need to mirror index under quotes folder that shows Quotes list attributed to author/source -->
 
 <h2><a href="create.php">Add a new author</a><hr /></h2>
+
+
 <?php
   session_start();
   // we wnat the index to read the authors.csv every time to pick up changes
+  //if the user is logged in, give them a sign out option
+  if (isset($_SESSION['logged'])){ 
+    echo '<h4><a href="../Auth/signout.php"> Sign Out</a>';
+  }
+
   $error = '';
   $count_rows = 0;
   if(file_exists('../data/authors.csv')){
